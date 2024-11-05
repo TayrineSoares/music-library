@@ -31,10 +31,6 @@ const library = {
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
 
-//PSEUDO CODING
-// iterate through the object until key playlist 
-// create an empty object to store and count the number of tracks
-// print id, name and number of tracks 
 
 const printPlaylists = function(object) {
         const playlistKeys = Object.keys(object.playlists); // returns an array of keys from the playlists object
@@ -89,13 +85,26 @@ const printPlaylist = function(playlistId) {
        });
 
 }
-printPlaylist('p01');
-printPlaylist('p02');
+// printPlaylist('p01');
+// printPlaylist('p02');
 
 // adds an existing track to an existing playlist
 const addTrackToPlaylist = function(trackId, playlistId) {
 
-}
+       if (library.tracks[trackId] && library.playlists[playlistId]) { // checks if tracks and playlist exist in the library
+              const playlist = library.playlists[playlistId]; 
+              //console.log(playlist);
+              if (!playlist.tracks.includes(trackId)) { //checking that the track doesnt already exist 
+                     playlist.tracks.push(trackId); // pushes the new track to the playlist 
+                     console.log(`Track ${trackId} added to playlist ${playlistId}`);
+              } else {
+                     console.log(`Track ${trackId} is already in playlist ${playlistId}`);
+              }
+                 } else {
+                   console.log("Track or Playlist not found");
+                 }
+               }
+addTrackToPlaylist("t03", "p01");
 
 
 // generates a unique id
