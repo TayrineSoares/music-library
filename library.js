@@ -66,15 +66,20 @@ const printTracks = function(object) {
        });
 }
 
-printTracks(library);
+//printTracks(library);
+
 
 // prints a list of tracks for a given playlist, using the following format:
 // p01: Coding Music - 2 tracks
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
 // t02: Model View Controller by James Dempsey (WWDC 2003)
-const printPlaylist = function(playlistId) {
+const printPlaylist = function(object) {
+       
 
+       
+       console.log()
 }
+printPlaylist(library);
 
 
 // adds an existing track to an existing playlist
