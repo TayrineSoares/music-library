@@ -74,10 +74,26 @@ const printTracks = function(object) {
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 const printPlaylist = function(object) {
+       const keyPlaylist = Object.keys(object.playlists); 
+              //console.log(keyPlaylist);
+       const keyTracks = Object.keys(object.tracks);
+              // console.log(keyTracks);
+
+       keyPlaylist.forEach((playlistId) => {
+              const playlist = object.playlists[playlistId];
+              const playlistName = playlist.name;
+              const playlistTracksLength = playlist.tracks.length;     
+       
+
+              console.log(`${playlistId}: ${playlistName} - ${playlistTracksLength} tracks`);
+              
+              if
+
+       });
        
 
        
-       console.log()
+
 }
 printPlaylist(library);
 
