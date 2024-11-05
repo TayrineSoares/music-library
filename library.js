@@ -22,7 +22,7 @@ const library = {
                     }
              }
 };
-/// TRYING THE FIRST COMMIT 
+
 /////////////////////////////
 // FUNCTIONS TO IMPLEMENT:
 /////////////////////////////
@@ -30,9 +30,23 @@ const library = {
 // prints a list of all playlists, in the form:
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
-const printPlaylists = function() {
 
-}
+//PSEUDO CODING
+// iterate through the object until key playlist 
+// create an empty object to store and count the number of tracks
+// print id, name and number of tracks 
+
+const printPlaylists = function(object) {
+        const playlistKeys = Object.keys(object.playlists); // returns an array of keys from the playlists object
+       playlistKeys.forEach((playlistId) => { // sets up an iteration, where the function inside forEach is executed once for each element in playlistKeys.
+              const playlist = object.playlists[playlistId];
+              const playlistName = playlist.name; 
+              const numberOfTracks = playlist.tracks.length;            
+   
+              console.log(`${playlistId}: ${playlistName} - ${numberOfTracks} tracks` );
+       });      
+}; 
+printPlaylists(library);
 
 
 // prints a list of all tracks, using the following format:
