@@ -55,8 +55,17 @@ const printPlaylists = function(object) {
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 const printTracks = function(object) {
        const tracksKeys = Object.keys(object.tracks); 
-       console.log(tracksKeys);
+       //console.log(tracksKeys);
+       tracksKeys.forEach((tracksId) => {
+              const tracksIndKey = object.tracks[tracksId];
+              const tracksName = tracksIndKey.name; 
+              const artistName = tracksIndKey.artist; 
+              const albumName = tracksIndKey.album;
+
+       console.log(`${tracksId}: ${tracksName} by ${artistName} (${albumName})`)
+       });
 }
+
 printTracks(library);
 
 // prints a list of tracks for a given playlist, using the following format:
