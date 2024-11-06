@@ -104,7 +104,7 @@ const addTrackToPlaylist = function(trackId, playlistId) {
                    console.log("Track or Playlist not found");
                  }
                }
-addTrackToPlaylist("t03", "p01");
+//addTrackToPlaylist("t03", "p01");
 
 
 // generates a unique id
@@ -112,12 +112,22 @@ addTrackToPlaylist("t03", "p01");
 const generateUid = function() {
   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 }
+generateUid(library);
 
 
 // adds a track to the library
 const addTrack = function(name, artist, album) {
-
+       const newTrackId = generateUid();
+       library.tracks[newTrackId] = {
+       id: newTrackId,
+       name: name, 
+       artist: artist, 
+       album: album
+       };
+       console.log(`Track added: ${name}`);
 }
+addTrack('abcd', 'efgh', 'ijkl');
+console.log(library.tracks);
 
 
 // adds a playlist to the library
