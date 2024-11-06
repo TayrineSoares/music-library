@@ -55,11 +55,29 @@ const library = {
       const trackAlbum = track.album;
       console.log(`${trackNum}: ${trackName} by ${trackArtist} (${trackAlbum})`);
     });
-  }
-};
+  },
+  addTrackToPlaylist: function(trackId, playlistId) {
+    if (this.tracks[trackId] && this.playlists[playlistId]) {
+      const playlist = this.playlists[playlistId]; 
+      
+      if (!playlist.tracks.includes(trackId)) {
+        playlist.tracks.push(trackId); //uses push because its an array
+        console.log(`Track ${trackId} added to the playlist ${playlistId}`);
+      } else { 
+        console.log(`Track ${trackId} is already in the playlist ${playlistId}`);
+      } 
+      console.log(`Updated Playlist (${playlistId}):`, playlist);
+    } else {
+        console.log("Track or Playlist not found");
+    }
+  } 
+}
+  
+
 
 //library.printPlaylists(); 
 //library.printTracks();
-library.printPlaylist('p01');
+//library.printPlaylist('p01');
+library.addTrackToPlaylist( "t03","p01");
 
 
