@@ -124,16 +124,24 @@ const addTrack = function(name, artist, album) {
        artist: artist, 
        album: album
        };
-       console.log(`Track added: ${name}`);
+console.log(`Track added: ${name}`);
 }
-addTrack('abcd', 'efgh', 'ijkl');
-console.log(library.tracks);
+//addTrack('abcd', 'efgh', 'ijkl');
+//console.log(library.tracks);
 
 
 // adds a playlist to the library
 const addPlaylist = function(name) {
-
+       const newPlayId = generateUid();
+       library.playlists[newPlayId] = {
+              id: newPlayId,
+              name: name,
+              tracks: []
+       };
+console.log(`Playlist added: ${name}`); 
 }
+addPlaylist("Nova Playlist");
+console.log(library.playlists);
 
 
 // STRETCH:
