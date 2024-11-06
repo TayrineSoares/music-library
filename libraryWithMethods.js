@@ -43,10 +43,23 @@ const library = {
       
       console.log(`${trackId}: ${trackName} by ${trackArtist} (${trackAlbum})`);
     });
+  }, 
+  printPlaylist: function (playlistId) {
+    const playlist = (this.playlists[playlistId]);
+    console.log(`${playlistId}: ${playlist.name} - ${playlist.tracks.length} tracks `);
+    playlist.tracks.forEach((tracksId) => {
+      const track = this.tracks[tracksId];
+      const trackNum = track.id;
+      const trackName = track.name;
+      const trackArtist = track.artist; 
+      const trackAlbum = track.album;
+      console.log(`${trackNum}: ${trackName} by ${trackArtist} (${trackAlbum})`);
+    });
   }
 };
 
 //library.printPlaylists(); 
 //library.printTracks();
+library.printPlaylist('p01');
 
 
