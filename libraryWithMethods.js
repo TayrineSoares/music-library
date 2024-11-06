@@ -23,6 +23,8 @@ const library = {
                       tracks: ["t03"]
                     }
              },
+
+
   printPlaylists: function () {
     const playlistKeys = Object.keys(this.playlists); 
     playlistKeys.forEach((playlistId) => { 
@@ -33,6 +35,8 @@ const library = {
            console.log(`${playlistId}: ${playlistName} - ${numberOfTracks} tracks` );
     })
   },    
+
+
   printTracks: function () {
     const tracksKeys = Object.keys(this.tracks);
     tracksKeys.forEach((trackId) => {
@@ -44,6 +48,8 @@ const library = {
       console.log(`${trackId}: ${trackName} by ${trackArtist} (${trackAlbum})`);
     });
   }, 
+
+
   printPlaylist: function (playlistId) {
     const playlist = (this.playlists[playlistId]);
     console.log(`${playlistId}: ${playlist.name} - ${playlist.tracks.length} tracks `);
@@ -56,6 +62,8 @@ const library = {
       console.log(`${trackNum}: ${trackName} by ${trackArtist} (${trackAlbum})`);
     });
   },
+
+
   addTrackToPlaylist: function(trackId, playlistId) {
     if (this.tracks[trackId] && this.playlists[playlistId]) {
       const playlist = this.playlists[playlistId]; 
@@ -74,6 +82,8 @@ const library = {
   generateUid: function() {
     return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
   }, 
+
+
   addTrack: function(name, artist, album) {
     const newTrackId = this.generateUid();
     this.tracks[newTrackId] = {
@@ -83,8 +93,21 @@ const library = {
     }; 
   console.log(`Track added: ${name}`);
   console.log("Updated tracks list", this.tracks);
-  } 
+  },
+
+
+  addPlaylist: function(name) {
+    const newPlaylistId = this.generateUid();
+    this.playlists[newPlaylistId] = {
+      id: newPlaylistId,
+      name: name,
+      tracks: []
+    }; 
+    console.log(`Playlist ${name} has been added to the playlists`);
+    console.log("Updated List:", this.playlists);
+  }
 }
+
   
 
 
@@ -93,6 +116,8 @@ const library = {
 //library.printPlaylist('p01');
 // library.addTrackToPlaylist( "t03","p01");
 //(library.generateUid());
-library.addTrack("minha track", "meu artisita", "meu album");
+//library.addTrack("minha track", "meu artista", "meu album");
+// library.addPlaylist("minha nova playlist");
+
 
 
