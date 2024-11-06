@@ -70,7 +70,11 @@ const library = {
     } else {
         console.log("Track or Playlist not found");
     }
-  } 
+  },
+  generateUid: function() {
+    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  }
+
 }
   
 
@@ -78,6 +82,7 @@ const library = {
 //library.printPlaylists(); 
 //library.printTracks();
 //library.printPlaylist('p01');
-library.addTrackToPlaylist( "t03","p01");
+// library.addTrackToPlaylist( "t03","p01");
+//(library.generateUid());
 
 
