@@ -73,8 +73,17 @@ const library = {
   },
   generateUid: function() {
     return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-  }
-
+  }, 
+  addTrack: function(name, artist, album) {
+    const newTrackId = this.generateUid();
+    this.tracks[newTrackId] = {
+      name: name,
+      artist: artist,
+      album:album,
+    }; 
+  console.log(`Track added: ${name}`);
+  console.log("Updated tracks list", this.tracks);
+  } 
 }
   
 
@@ -84,5 +93,6 @@ const library = {
 //library.printPlaylist('p01');
 // library.addTrackToPlaylist( "t03","p01");
 //(library.generateUid());
+library.addTrack("minha track", "meu artisita", "meu album");
 
 
