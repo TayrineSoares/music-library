@@ -31,9 +31,22 @@ const library = {
            const numberOfTracks = playlist.tracks.length;            
 
            console.log(`${playlistId}: ${playlistName} - ${numberOfTracks} tracks` );
-    });      
-}
+    })
+  },    
+  printTracks: function () {
+    const tracksKeys = Object.keys(this.tracks);
+    tracksKeys.forEach((trackId) => {
+      const track = this.tracks[trackId];
+      const trackName = track.name; 
+      const trackArtist = track.artist;
+      const trackAlbum = track.album;
+      
+      console.log(`${trackId}: ${trackName} by ${trackArtist} (${trackAlbum})`);
+    });
+  }
 };
-library.printPlaylists(); 
+
+//library.printPlaylists(); 
+//library.printTracks();
 
 
